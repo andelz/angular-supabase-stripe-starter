@@ -1,0 +1,54 @@
+:host {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-flow: column;
+
+    header {
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: auto 1fr auto auto;
+        grid-template-areas: "icon . user logout";
+        align-items: center;
+        gap: 1em;
+
+        flex: 0 0 auto;
+        justify-content: space-between;
+        padding: 1em;
+
+        a.icon {
+            color: var(--text-color-body);
+            grid-area: icon;
+            display: flex;
+            align-items: center;
+            gap: 1em;
+
+            svg {
+                background-color: var(--text-color-body);
+                border-radius: 4px;
+                outline: 2px solid var(--text-color-body);
+                fill: var(--main-background);
+            }
+        }
+        a.user {
+            grid-area: user;
+        }
+        button {
+            grid-area: logout;
+        }
+    }
+    main {
+        flex: 1;
+        padding: var(--size-6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow-y: auto;
+
+        > *:not(router-outlet) {
+            max-width: 800px;
+            display: block;
+            border: 1px solid red;
+        }
+    }
+}

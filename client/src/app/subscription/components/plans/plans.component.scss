@@ -1,0 +1,43 @@
+:host {
+    .error {
+        margin-block-end: var(--app-pane-padding);
+    }
+    .plans {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1em;
+        min-height: 4em;
+
+        .plan {
+            border: 1px solid rgba(var(--text-color-rgb), 0.1);
+            padding: 1em;
+            display: flex;
+            flex-flow: column;
+
+            h5 {
+                color: var(--color-accent);
+                margin: 0 0 .5em 0;
+                font-size: 1.5em;
+            }
+            
+            .price {
+                color: var(--color-accent);
+                font-size: 2em;
+                font-weight: bold;                
+            }
+
+            button {
+                margin-block-start: 1em;
+            }
+
+            &.active {
+                outline: 2px solid rgba(var(--color-accent-rgb), 0.7);
+                border-color: rgba(var(--color-accent-rgb), 1);
+
+                button {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+}

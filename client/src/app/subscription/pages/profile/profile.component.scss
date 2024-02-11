@@ -1,0 +1,85 @@
+:host {
+    display: flex;
+    flex-flow: column;
+    max-width: var(--page-max-width);
+    padding: var(--app-pane-padding);
+    max-height: 100%;
+    box-sizing: border-box;
+    gap: var(--app-pane-padding);
+
+    section {
+        background-color: var(--surface-2);
+        padding: var(--app-pane-padding);
+        border-radius: 1em;
+
+        h2 {
+            margin-block-start: 0;
+        }
+    }
+
+    form {
+        display: grid;
+        grid-template-rows: auto auto auto;
+        grid-template-columns: auto 1fr;
+        grid-template-areas:
+            "avt email"
+            "avt input"
+            "avt button";
+
+        gap: 1em;
+        .avatar {
+            grid-area: avt;
+            width: 8em;
+            height: 8em;
+
+            &::after {
+                content: "";
+                display: block;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                background-color: rgba(var(--text-color-rgb), 0.1);
+            }
+        }
+        .email {
+            grid-area: email;
+            color: var(--text-color-caption);
+        }
+        input {
+            grid-area: input;
+        }
+        button {
+            grid-area: button;
+            justify-self: end;
+        }
+    }
+
+    .subscription.confirm {
+        outline: 1px solid var(--color-error);
+        color: var(--color-error);
+        display: grid;
+        grid-template-rows: auto auto;
+        grid-template-columns: auto auto;
+        grid-template-areas: "h h" "p p" "no yes";
+
+        h2 {
+            grid-area: h;
+        }
+        p {
+            grid-area: p;
+        }
+        button {
+            grid-area: no;
+            justify-self: start;
+        }
+        button.primary {
+            background-color: var(--color-error);
+            grid-area: yes;
+            justify-self: end;
+        }
+    }
+
+    app-plans {
+        margin-block: 2em;
+    }
+}

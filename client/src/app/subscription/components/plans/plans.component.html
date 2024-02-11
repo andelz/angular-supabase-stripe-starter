@@ -1,0 +1,12 @@
+@if(error){
+<div class="error">{{error}}</div>
+}
+<div class="plans" [busyCover]="busy">
+    @for(t of tiles; track t.id){
+    <div class="plan" [ngClass]="{active: t.subscribed}">
+        <h5>{{t.label}}</h5>
+        <div class="price">{{t.price | currency: t.currency}}</div>
+        <button [disabled]="t.subscribed" (click)="subscribeTo(t.plan)">Subcribe</button>
+    </div>
+    }
+</div>

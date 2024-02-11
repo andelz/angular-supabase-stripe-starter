@@ -1,0 +1,11 @@
+:host {
+    display: grid;
+    align-items: center;
+    justify-content: center ;
+
+    form {
+        display: flex;
+        flex-flow: column;
+        gap: var(--app-pane-padding);
+    }
+}

@@ -1,0 +1,87 @@
+:root {
+    --color-accent-rgb: 190, 0, 190;
+    --color-accent: rgba(var(--color-accent-rgb), 1);
+    --color-error: #ff6400;
+    --color-warning: #f0c000;
+    --main-background: rgb(28, 28, 28);
+    --surface-1: rgb(35, 35, 35);
+    --surface-2: rgb(40, 40, 40);
+    --text-color-rgb: 255, 255, 255;
+    --text-color-body: rgba(var(--text-color-rgb), 1);
+    --text-color-caption: rgba(var(--text-color-rgb), 0.75);
+    --app-pane-padding: 16px;
+    --font-family: monospace;
+
+    --page-max-width: 600px;
+}
+
+::selection {
+    background-color: rgba(var(--color-accent-rgb), 0.2);
+}
+
+button {
+    background-color: rgba(var(--text-color-rgb), 0.06);
+    color: var(--text-color-body);
+    padding: 0.5em;
+    border-radius: 0.25em;
+    border: none;
+    cursor: pointer;
+
+    &[disabled] {
+        opacity: 0.5;
+        cursor: default;
+    }
+    &:not([disabled]) {
+        &:active,
+        &:hover {
+            background-color: rgba(var(--text-color-rgb), 0.1);
+        }
+    }
+
+    &.primary:not([disabled]) {
+        background-color: var(--color-accent);
+    }
+}
+input {
+    background-color: rgba(var(--text-color-rgb), 0.06);
+    border: 1px solid rgba(var(--text-color-rgb), 0.2);
+    color: var(--text-color-body);
+    padding: 0.5em;
+    border-radius: 0.25em;
+    outline: 0;
+
+    &:active,
+    &:focus {
+        outline: 2px solid rgba(var(--color-accent-rgb), 0.4);
+        border-color: rgba(var(--color-accent-rgb), 0.8);
+    }
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--main-background);
+    color: var(--text-color-body);
+    * {
+        font-family: var(--font-family);
+    }
+
+    a {
+        color: var(--color-accent);
+        text-decoration: none;
+    }
+}
+
+.error {
+    border: 1px solid var(--color-error);
+    color: var(--color-error);
+    padding: 0.5em;
+    border-radius: 0.25em;
+}
+.warning {
+    border: 1px solid var(--color-warning);
+    color: var(--color-warning);
+    padding: 0.5em;
+    border-radius: 0.25em;
+}

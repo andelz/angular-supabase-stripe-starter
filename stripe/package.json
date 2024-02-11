@@ -1,0 +1,10 @@
+{
+  "name": "stripe",
+  "scripts": {
+    "stripe:plans:create": "node create-plan.js"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.1",
+    "stripe": "^14.14.0"
+  }
+}

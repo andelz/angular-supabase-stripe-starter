@@ -1,0 +1,14 @@
+@if(!showMailConfirm){
+<form [formGroup]="signupForm" (ngSubmit)="signUp()">
+    <input type="email" formControlName="email" placeholder="eMail">
+    <input type="password" formControlName="password" placeholder="Password">
+    <input type="password" formControlName="passwordConfirm" placeholder="Confirm password">
+    <button class="primary" [disabled]="signupForm.invalid || busy">Sign up</button>
+</form>
+<p><a replaceUrl="true" routerLink="/login">back</a></p>
+}
+@else {
+    <!-- Signup succeeded -->
+    <h1>Welcome</h1>
+    <p>Please confirm your eMail address in order to continue ...</p>
+}

@@ -1,0 +1,35 @@
+@if(error){
+<div class="error">{{error}}</div>
+}
+<!-- User profile -->
+<section class="profile" [busyCover]="busy.profile">
+    <form [formGroup]="profileForm" (ngSubmit)="saveProfile()">
+        <div class="avatar"><!-- TODO: implement image uploader --></div>
+        <div class="email">{{user?.email}}</div>
+        <input type="text" formControlName="username">
+        <button [ngClass]="{primary: profileForm.valid && profileForm.dirty}"
+            [disabled]="profileForm.invalid || profileForm.pristine">Save</button>
+    </form>
+</section>
+
+<!-- Subscription -->
+<section class="plans" [busyCover]="busy.plans">
+    <h2>Plans</h2>
+    <app-plans></app-plans>
+</section>
+
+<!-- Subscription -->
+@if(user?.subscribed){
+<section class="subscription" [ngClass]="{confirm: cancelSubscriptionConfirm}" [busyCover]="busy.cancel">
+    <h2>Your subscription</h2>
+    @if(cancelSubscriptionConfirm) {
+    <p>Canceling your subscription will permanently delete all your data.</p>
+    <button (click)="cancelSubscriptionConfirm = false">No</button>
+    <button class="primary" (click)="cancelSubscription()">Yes, cancel!</button>
+    } @else{
+    <button (click)="cancelSubscriptionConfirm = true">Cancel subscription</button>
+    }
+
+
+</section>
+}

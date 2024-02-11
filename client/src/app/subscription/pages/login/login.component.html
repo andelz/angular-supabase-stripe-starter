@@ -1,0 +1,27 @@
+<div class="login" [busyCover]="busy">
+    @if(error){
+    <div class="error">{{error}}</div>
+    }
+    @if(notification){
+    <div class="warning">{{notification}}</div>
+    }
+    @if(!disableLoginWithEmail) {
+    <form [formGroup]="emailLoginForm" (ngSubmit)="login()">
+        <input type="email" formControlName="email" placeholder="eMail">
+        <input type="password" formControlName="password" placeholder="Password">
+        <button class="primary" [disabled]="emailLoginForm.invalid || busy">Login</button>
+    </form>
+    <p>
+        Not yet a member?
+        <a class="signup" routerLink="/signup">Sign up here</a>
+    </p>
+
+    }
+    @if(providers.length){
+    <section class="providers">
+        @for(p of providers; track p.id) {
+        <button (click)="loginWithProvider(p.id)">{{p.label}}</button>
+        }
+    </section>
+    }
+</div>

@@ -1,0 +1,29 @@
+:host {
+    .login {
+        display: grid;
+        align-items: center;
+        justify-content: center;
+
+        .error,
+        .warning {
+            margin-block-end: 1em;
+        }
+
+        form {
+            display: flex;
+            flex-flow: column;
+            gap: var(--app-pane-padding);
+        }
+
+        a.signup {
+        }
+
+        .providers {
+            margin-block-start: calc(var(--app-pane-padding) * 1.75);
+            padding-block-start: var(--app-pane-padding);
+            border-block-start: 1px dashed rgba(var(--text-color-rgb), 0.1);
+            display: flex;
+            flex-flow: column;
+        }
+    }
+}
