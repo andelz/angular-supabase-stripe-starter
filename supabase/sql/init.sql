@@ -14,8 +14,8 @@ create table user_profile (
   subscribed text
 );
 alter table user_profile enable row level security;
-create policy "Can view own user data." on user_profile to authenticated for select using (auth.uid() = id);
-create policy "Can update own user data." on user_profile to authenticated for update using (auth.uid() = id);
+create policy "Can view own user data." on public.user_profile for select to authenticated using (auth.uid() = id);
+create policy "Can update own user data." on public.user_profile for update to authenticated using (auth.uid() = id);
 
  
 -- CUSTOMERS ------------------------------------
